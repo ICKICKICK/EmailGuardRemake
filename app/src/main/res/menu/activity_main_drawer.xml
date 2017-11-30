@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inbox"
+            android:icon="@drawable/ic_menu_inbox"
+            android:title="Inbox" />
+        <item
+            android:id="@+id/nav_sent"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Sent" />
+        <item
+            android:id="@+id/nav_drafts"
+            android:icon="@drawable/ic_menu_drafts"
+            android:title="Drafts" />
+        <!--<item-->
+            <!--android:id="@+id/nav_outbox"-->
+            <!--android:icon="@drawable/ic_menu_outbox"-->
+            <!--android:title="Outbox" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_trash"-->
+            <!--android:icon="@drawable/ic_menu_trash"-->
+            <!--android:title="Trash" />-->
+    </group>
+
+    <!--<item android:title="All Labels">-->
+        <!--<menu>-->
+            <!--<group android:checkableBehavior="single">-->
+                <!--<item-->
+                    <!--android:icon="@drawable/ic_menu_label"-->
+                    <!--android:title="Starred" />-->
+                <!--<item-->
+                    <!--android:icon="@drawable/ic_menu_label"-->
+                    <!--android:title="Work" />-->
+                <!--<item-->
+                    <!--android:icon="@drawable/ic_menu_label"-->
+                    <!--android:title="Family" />-->
+                <!--<item-->
+                    <!--android:icon="@drawable/ic_menu_label"-->
+                    <!--android:title="Traveling" />-->
+            <!--</group>-->
+        <!--</menu>-->
+    <!--</item>-->
+
+    <item android:title="">
+        <menu>
+            <group android:checkableBehavior="single">
+                <!--<item-->
+                    <!--android:id="@+id/nav_profile"-->
+                    <!--android:icon="@drawable/ic_profile"-->
+                    <!--android:title="Profile"-->
+                    <!--android:checked="false"/>-->
+                <!--<item-->
+                    <!--android:id="@+id/nav_address_book"-->
+                    <!--android:icon="@drawable/ic_contacts"-->
+                    <!--android:title="Address Book"-->
+                    <!--android:checked="false"/>-->
+                <!--<item-->
+                    <!--android:id="@+id/nav_settings"-->
+                    <!--android:icon="@drawable/ic_menu_settings"-->
+                    <!--android:title="Settings"-->
+                    <!--android:checked="false"/>-->
+                <!--<item-->
+                    <!--android:id="@+id/nav_help_feedback"-->
+                    <!--android:icon="@drawable/ic_menu_help"-->
+                    <!--android:title="Help &amp; Feedback"-->
+                    <!--android:checked="false"/>-->
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_logout"
+                    android:title="Logout"
+                    android:checked="false"/>
+            </group>
+        </menu>
+    </item>
+
+</menu>
