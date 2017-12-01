@@ -87,18 +87,18 @@ public class InboxFragment extends Fragment {
         pass = password;
         TextView txtprofil = (TextView) view.findViewById(R.id.label);
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), ComposeActivity.class);
-//                Bundle bun = new Bundle();
-//                bun.putString("strFrom", email);
-//                intent.putExtras(bun);
-//                startActivity(intent);
-//                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                //      .setAction("Action", null).show();
-//            }
-//        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ComposeActivity.class);
+                Bundle bun = new Bundle();
+                bun.putString("strFrom", email);
+                intent.putExtras(bun);
+                startActivity(intent);
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                //      .setAction("Action", null).show();
+            }
+        });
 
         final ListView lvwMail = (ListView) view.findViewById(R.id.mailBoxList);
         Log.d("sunda", email);
@@ -197,12 +197,6 @@ public class InboxFragment extends Fragment {
 
                 for (int i = 0; i < 15; i++) {
                     Message message = messages[i];
-                    /*int ID = message.getMessageNumber();
-                    Address[] fromAddress = message.getFrom();
-                    String from = fromAddress[0].toString();
-                    String subject = message.getSubject();
-                    String sentDate = message.getSentDate().toString();*/
-
                     String contentType = message.getContentType();
 
                     // store attachment file name, separated by comma
@@ -285,5 +279,11 @@ public class InboxFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("INBOX");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        //OnResume Fragment
     }
 }
