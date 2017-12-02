@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.ick.emailguard.activity.SplashScreen">
+        <activity android:name=".activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,20 +24,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.ick.emailguard.activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:name=".activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.ick.emailguard.activity.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:name=".activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.ick.emailguard.activity.ComposeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:name=".activity.ComposeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.BacaEmailActivity" />
+        <activity android:name=".activity.ReplyMailActivity" />
+        <activity android:name=".activity.ForwardMailActivity"></activity>
     </application>
 
 </manifest>

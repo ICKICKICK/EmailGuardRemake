@@ -18,7 +18,7 @@
         android:id="@+id/iv_inbox_item"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/eg_logo" />
+        android:src="@drawable/ic_account_circle" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -59,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
             android:text="Subject"
+            android:lines="1"
             android:textSize="16sp" />
 
         <TextView
@@ -102,7 +103,7 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_attachment"
-            android:visibility="visible"
+            android:visibility="invisible"
             />
 
 

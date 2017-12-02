@@ -25,7 +25,6 @@ public class SessionManager {
     public static final String kunci_email = "keyemail";
     public static final String kunci_password = "password";
     public static final String kunci_provider = "provider";
-    //public static final String kunci_token = KeyExchange.tokenfix;
 
     public SessionManager(Context context) {
         this.context = context;
@@ -38,7 +37,6 @@ public class SessionManager {
         editor.putString(kunci_email, email);
         editor.putString(kunci_password, password);
         editor.putString(kunci_provider, provider);
-        //editor.putString(kunci_token, KeyExchange.tokenfix);
         editor.commit();
     }
 

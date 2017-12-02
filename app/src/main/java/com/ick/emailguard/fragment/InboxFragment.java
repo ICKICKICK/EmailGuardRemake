@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ick.emailguard.R;
+import com.ick.emailguard.activity.BacaEmailActivity;
 import com.ick.emailguard.activity.ComposeActivity;
 import com.ick.emailguard.helper.SessionManager;
 import com.ick.emailguard.model.Mail;
@@ -117,7 +118,7 @@ public class InboxFragment extends Fragment {
                     String strAttachment = ((TextView) view.findViewById(R.id.attachment)).getText().toString();
                     String strDate = ((TextView) view.findViewById(R.id.date)).getText().toString();
                     Log.d("tes", strDate);
-//                    Intent myIntent = new Intent(getActivity(), BacaEmail.class);
+                    Intent myIntent = new Intent(getActivity(), BacaEmailActivity.class);
                     Bundle bun = new Bundle();
                     // bun.putString("strID", strID);
                     bun.putString("strFrom", strFrom);
@@ -125,8 +126,8 @@ public class InboxFragment extends Fragment {
                     bun.putString("strDate", strDate);
                     bun.putString("strContent", strContent);
                     bun.putString("strAttachment", strAttachment);
-//                    myIntent.putExtras(bun);
-//                    getActivity().startActivity(myIntent);
+                    myIntent.putExtras(bun);
+                    getActivity().startActivity(myIntent);
                 }
             });
         } catch (InterruptedException e) {
@@ -179,7 +180,8 @@ public class InboxFragment extends Fragment {
                 CommandMap.setDefaultCommandMap(mc);
 
                 //create the folder object and open it
-                Folder emailFolder = store.getFolder("[Gmail]/Sent Mail");
+                Folder emailFolder = store.getFolder("inbox");
+//                Folder emailFolder = store.getFolder("[Gmail]/Sent Mail");
                 emailFolder.open(Folder.READ_ONLY);
 
                 // retrieve the messages from the folder in an array and print it
