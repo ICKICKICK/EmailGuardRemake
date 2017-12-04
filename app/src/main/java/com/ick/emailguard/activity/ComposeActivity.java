@@ -21,7 +21,7 @@ import com.ick.emailguard.R;
 
 public class ComposeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    // String email, subject, message;
+    String email, subject, message;
     String attachmentFile;
     Uri URI = null;
     private static final int PICK_FROM_GALLERY = 101;
