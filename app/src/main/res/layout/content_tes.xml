@@ -66,7 +66,7 @@
                 <TextView
                     android:id="@+id/from"
                     android:text="@+id/label"
-                    android:hint="tes@gamil.com"
+                    android:hint="tes@gmail.com"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"

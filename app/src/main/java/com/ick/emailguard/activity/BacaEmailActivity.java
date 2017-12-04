@@ -45,6 +45,12 @@ public class BacaEmailActivity extends AppCompatActivity implements View.OnClick
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Email Guard");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+
         Bundle b = getIntent().getExtras();
         strID = b.getString("strID");
         strFrom = b.getString("strFrom");
@@ -144,7 +150,7 @@ public class BacaEmailActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onRestart(){
         super.onRestart();
-        Intent myIntent = new Intent(BacaEmailActivity.this, MainActivity.class);
+        Intent myIntent = new Intent(BacaEmailActivity.this, InboxFragment.class);
         startActivity(myIntent);
         this.finish();
     }
@@ -172,8 +178,9 @@ public class BacaEmailActivity extends AppCompatActivity implements View.OnClick
             bun.putString("strSubject", strSubject);
             bun.putString("strContent", strContent);
             myIntent.putExtras(bun);
-            BacaEmailActivity.this.startActivity(myIntent);
+            startActivity(myIntent);
         }
+
 //        if (view == delete) {
 //            Delete();
 //            onRestart();

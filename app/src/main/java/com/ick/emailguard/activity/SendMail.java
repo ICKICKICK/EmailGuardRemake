@@ -100,7 +100,7 @@ class SendMail extends AsyncTask<Void,Void,Void> {
         try {
 
             //Creating MimeMessage object
-            if (attachment!= null ) {
+            if (attachment!= "null" ) {
                 MimeMessage mm = new MimeMessage(session);
 
                 //Setting sender address
@@ -147,7 +147,7 @@ class SendMail extends AsyncTask<Void,Void,Void> {
 
             Log.d("Tanpa Attachment", attachment);
             MimeMessage mm = new MimeMessage(session);
-            //Log.d("celeng",enkrip);
+
             //Setting sender address
             mm.setFrom(new InternetAddress(InboxFragment.email));
             //Adding receiver
@@ -155,8 +155,7 @@ class SendMail extends AsyncTask<Void,Void,Void> {
             //Adding subject
             mm.setSubject(subject);
             //Adding message
-            //Asymmetric asym = new Asymmetric();
-            //String enkripmessage = asym.Encrypts(message);
+
             mm.setText(message);
             Transport.send(mm);
 

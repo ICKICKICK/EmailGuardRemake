@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +21,8 @@ import com.ick.emailguard.R;
 
 public class ComposeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    String email, subject, message, attachmentFile;
+    // String email, subject, message;
+    String attachmentFile;
     Uri URI = null;
     private static final int PICK_FROM_GALLERY = 101;
     int columnIndex;
@@ -55,17 +57,11 @@ public class ComposeActivity extends AppCompatActivity implements View.OnClickLi
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextSubject = (EditText) findViewById(R.id.editTextSubject);
         editTextMessage = (EditText) findViewById(R.id.editTextMessage);
-        //txtp = (TextView) findViewById(R.id.tes);
+
         editTextFrom.setText(strFrom);
 
-        //btnAttachment = (Button) findViewById(R.id.btnAttachment);
-        //buttonSend = (Button) findViewById(R.id.buttonSend);
-
-        //Adding click listener
-
-        //buttonSend.setOnClickListener(this);
-        //btnAttachment.setOnClickListener(this);
     }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         try {
             if (requestCode == PICK_FROM_GALLERY && resultCode == RESULT_OK) {
@@ -94,7 +90,7 @@ public class ComposeActivity extends AppCompatActivity implements View.OnClickLi
         String email = editTextEmail.getText().toString().trim();
         String subject = editTextSubject.getText().toString().trim();
 
-        String message1 = editTextMessage.getText().toString();
+        String message = editTextMessage.getText().toString();
         String attachment = String.valueOf(URI);
 
         SendMail sm = new SendMail(this, email, subject, message, attachment);

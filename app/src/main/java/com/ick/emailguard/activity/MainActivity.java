@@ -22,6 +22,7 @@ import com.ick.emailguard.fragment.SentFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,7 +109,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragment = new SentFragment();
                 break;
             case R.id.nav_logout:
-//                fragment = new Menu3();
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Do you want to logout?");
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    }
+                });
+                builder.create().show();
+
                 break;
         }
 
