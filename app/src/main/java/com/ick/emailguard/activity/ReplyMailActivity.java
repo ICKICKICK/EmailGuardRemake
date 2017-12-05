@@ -17,7 +17,7 @@ import android.widget.EditText;
 import com.ick.emailguard.R;
 
 public class ReplyMailActivity extends AppCompatActivity implements View.OnClickListener {
-    public String strFrom;
+    public String strFrom, strSender;
     public String strSubject;
     public String strContent;
     String email, subject, message, attachmentFile;
@@ -29,6 +29,7 @@ public class ReplyMailActivity extends AppCompatActivity implements View.OnClick
     private EditText editTextEmail;
     private EditText editTextSubject;
     private EditText editTextMessage;
+    private EditText editTextSender;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +45,16 @@ public class ReplyMailActivity extends AppCompatActivity implements View.OnClick
         editTextEmail = (EditText) findViewById(R.id.txt_reply_from);
         editTextSubject = (EditText) findViewById(R.id.editTextSubject);
         editTextMessage = (EditText) findViewById(R.id.editTextMessage);
+        editTextSender = findViewById(R.id.txt_reply_to);
 
         String GarisBatas = "-------------------------------";
         Bundle b = getIntent().getExtras();
         strFrom = b.getString("strFrom");
         strSubject = b.getString("strSubject");
         strContent = b.getString("strContent");
-        editTextEmail.setText(String.valueOf(strFrom));
+        strSender = b.getString("strEmail");
+        editTextEmail.setText(String.valueOf(strSender));
+        editTextSender.setText(String.valueOf(strFrom));
         editTextSubject.setText("Re:" + String.valueOf(strSubject));
         editTextMessage.setText(Html.fromHtml("<br>" + "<br>" + "<b>" + GarisBatas + "<br>" + strContent + "</b>"));
 
@@ -112,6 +116,7 @@ public class ReplyMailActivity extends AppCompatActivity implements View.OnClick
         switch (item.getItemId()){
             case android.R.id.home:
                 onBackPressed();
+                finish();
                 return true;
             case R.id.Attachment:
                 openGallery();

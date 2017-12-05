@@ -147,13 +147,7 @@ public class BacaEmailActivity extends AppCompatActivity implements View.OnClick
         DeleteEmail dm = new DeleteEmail(this, ID, host, mailStoreType, username, password);
         dm.execute();
     }
-    @Override
-    public void onRestart(){
-        super.onRestart();
-        Intent myIntent = new Intent(BacaEmailActivity.this, InboxFragment.class);
-        startActivity(myIntent);
-        this.finish();
-    }
+
     @Override
     public void onClick(View view) {
         try {
@@ -163,8 +157,10 @@ public class BacaEmailActivity extends AppCompatActivity implements View.OnClick
                 bun.putString("strFrom", strFrom);
                 bun.putString("strSubject", strSubject);
                 bun.putString("strContent", strContent);
+                bun.putString("strEmail", InboxFragment.email);
                 myIntent.putExtras(bun);
                 startActivity(myIntent);
+                Log.e("pesan", "klik");
             }
         }
         catch (Exception e){
@@ -177,6 +173,7 @@ public class BacaEmailActivity extends AppCompatActivity implements View.OnClick
             bun.putString("strFrom", strFrom);
             bun.putString("strSubject", strSubject);
             bun.putString("strContent", strContent);
+            bun.putString("strEmail", InboxFragment.email);
             myIntent.putExtras(bun);
             startActivity(myIntent);
         }

@@ -53,7 +53,7 @@
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
 
         <EditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/txt_reply_to"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="8"

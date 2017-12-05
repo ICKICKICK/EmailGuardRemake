@@ -18,7 +18,7 @@ import android.widget.EditText;
 import com.ick.emailguard.R;
 
 public class ForwardMailActivity extends AppCompatActivity implements View.OnClickListener {
-    public String strFrom;
+    public String strFrom, strSender;
     public String strSubject;
     public String strContent;
     String email, subject, message, attachmentFile;
@@ -27,7 +27,7 @@ public class ForwardMailActivity extends AppCompatActivity implements View.OnCli
     int columnIndex;
 
     //Declaring EditText
-    private EditText editTextEmail;
+    private EditText editTextEmail, editTextSender;
     private EditText editTextSubject;
     private EditText editTextMessage;
 
@@ -45,6 +45,7 @@ public class ForwardMailActivity extends AppCompatActivity implements View.OnCli
 
         //Initializing the views
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        editTextSender = findViewById(R.id.txt_reply_from);
         editTextSubject = (EditText) findViewById(R.id.editTextSubject);
         editTextMessage = (EditText) findViewById(R.id.editTextMessage);
 
@@ -53,7 +54,9 @@ public class ForwardMailActivity extends AppCompatActivity implements View.OnCli
         strFrom = b.getString("strFrom");
         strSubject = b.getString("strSubject");
         strContent = b.getString("strContent");
+        strSender = b.getString("strEmail");
         editTextSubject.setText("FWD:" + String.valueOf(strSubject));
+        editTextSender.setText(String.valueOf(strSender));
         editTextMessage.setText(Html.fromHtml("<br>" + "<br>" + "<b>" + GarisBatas + "<br>" + strContent + "</b>"));
 
     }
@@ -114,6 +117,7 @@ public class ForwardMailActivity extends AppCompatActivity implements View.OnCli
         switch (item.getItemId()){
             case android.R.id.home:
                 onBackPressed();
+                finish();
                 return true;
             case R.id.Attachment:
                 openGallery();
