@@ -23,15 +23,20 @@ import com.ick.emailguard.helper.SessionManager;
 import com.ick.emailguard.model.Mail;
 import com.ick.emailguard.model.MailArrayAdapter;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.*;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 import javax.activation.CommandMap;
 import javax.activation.MailcapCommandMap;
+import javax.mail.Authenticator;
 import javax.mail.Folder;
+import javax.mail.*;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -144,7 +149,7 @@ public class InboxFragment extends Fragment {
         @Override
         protected String[][] doInBackground(String[] params) {
             String mail_host = imaphost;// change accordingly
-            String mail_storeType = "pop3";
+            String mail_storeType = "imaps";
             final String mail_username = email;// change accordingly
             final String mail_password = pass;// change accordingly
 
@@ -161,7 +166,7 @@ public class InboxFragment extends Fragment {
                 properties.put("mail.imap.starttls.enable", "true");
 
                 Session emailSession = Session.getInstance(properties,
-                        new javax.mail.Authenticator() {
+                        new Authenticator() {
                             protected PasswordAuthentication getPasswordAuthentication() {
                                 return new PasswordAuthentication(mail_username, mail_password);
                             }
@@ -197,7 +202,21 @@ public class InboxFragment extends Fragment {
 
                 System.out.println("messages.length---" + messages.length);
 
-                for (int i = 0; i < 15; i++) {
+                //fungsi untuk mengurutkan email dari yang terbaru ke email yang lama
+                // Sort messages from recent to oldest
+                Arrays.sort(messages, (m1, m2) -> {
+                    try {
+                        return m2.getSentDate().compareTo(m1.getSentDate());
+                    } catch (MessagingException e ) {
+                        throw new RuntimeException(e);
+                    }
+                });
+
+                //untuk menampilkan semua email di inbox
+                for (int i = messages.length - 1; i >= 0; i--) {
+
+                    //untuk menampilkan email sebanyak 15 email
+                    //for (int i = 0; i < 15; i++) {
                     Message message = messages[i];
                     String contentType = message.getContentType();
 

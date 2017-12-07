@@ -24,6 +24,7 @@ import com.ick.emailguard.model.Mail;
 import com.ick.emailguard.model.MailArrayAdapter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
@@ -185,7 +186,20 @@ public class SentFragment extends Fragment {
 
                 System.out.println("messages.length---" + messages.length);
 
-                for (int i = 0; i < 15; i++) {
+
+                Arrays.sort(messages, (m1, m2) -> {
+                    try {
+                        return m2.getSentDate().compareTo(m1.getSentDate());
+                    } catch (MessagingException e ) {
+                        throw new RuntimeException(e);
+                    }
+                });
+
+                //untuk menampilkan sema email di inbox
+                for (int i = messages.length - 1; i >= 0; i--) {
+
+                    //untuk menampilkan email sebanyak 15 email
+                    //for (int i = 0; i < 15; i++) {
                     Message message = messages[i];
                     String contentType = message.getContentType();
 

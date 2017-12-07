@@ -21,7 +21,8 @@ public class ForwardMailActivity extends AppCompatActivity implements View.OnCli
     public String strFrom, strSender;
     public String strSubject;
     public String strContent;
-    String email, subject, message, attachmentFile;
+    //String email, subject, message;
+    String attachmentFile;
     Uri URI = null;
     private static final int PICK_FROM_GALLERY = 101;
     int columnIndex;
